@@ -87,3 +87,7 @@ q2_2019 <-  mutate(q2_2019, ride_id = as.character(ride_id)
 
 # Stack individual quarter's data frames into one big data frame
 all_trips <- bind_rows(q2_2019, q3_2019, q4_2019, q1_2020)
+
+# Remove lat, long, birthyear, and gender fields as this data was dropped beginning in 2020
+all_trips <- all_trips %>%  
+  select(-c(start_lat, start_lng, end_lat, end_lng, birthyear, gender, "01 - Rental Details Duration In Seconds Uncapped", "05 - Member Details Member Birthday Year", "Member Gender", "tripduration"))
