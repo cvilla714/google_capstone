@@ -35,7 +35,7 @@ colnames(q4_2019)
 colnames(q1_2020)
 
 
-# Rename columns  to make them consistent with q1_2020 (as this will be the supposed going-forward table design for Divvy)
+#giot s
 (q2_2019 <- rename(q2_2019
                    ,ride_id = "01 - Rental Details Rental ID"
                    ,rideable_type = "01 - Rental Details Bike ID" 
@@ -76,3 +76,14 @@ str(q3_2019)
 str(q4_2019)
 str(q1_2020)
 
+# Convert ride_id and rideable_type to character so that they can stack correctly
+q4_2019 <-  mutate(q4_2019, ride_id = as.character(ride_id)
+                   ,rideable_type = as.character(rideable_type)) 
+q3_2019 <-  mutate(q3_2019, ride_id = as.character(ride_id)
+                   ,rideable_type = as.character(rideable_type)) 
+q2_2019 <-  mutate(q2_2019, ride_id = as.character(ride_id)
+                   ,rideable_type = as.character(rideable_type)) 
+
+
+# Stack individual quarter's data frames into one big data frame
+all_trips <- bind_rows(q2_2019, q3_2019, q4_2019, q1_2020)
