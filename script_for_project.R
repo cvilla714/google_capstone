@@ -240,5 +240,4 @@ write.csv(counts,"C:\\Users\\PC01\\Desktop\\Divvy_Exercise\\avg_ride_length.csv"
 counts <- aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual + all_trips_v2$day_of_week, FUN = mean)
 write.csv(counts,"E:\\OneDrive\\Documents\\my office files\\web development courses\\coursera\\Capstone\\google_capstone\\avg_ride_length.csv", row.names = FALSE)
 
-#write.csv(counts, file = '~/Desktop/Divvy_Exercise/avg_ride_length.csv')
 
