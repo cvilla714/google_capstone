@@ -230,3 +230,15 @@ all_trips_v2 %>%
   arrange(member_casual, weekday)  %>% 
   ggplot(aes(x = weekday, y = average_duration, fill = member_casual)) +
   geom_col(position = "dodge")
+
+
+#this is how to write content to a csv file located in my desktop
+counts <- aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual + all_trips_v2$day_of_week, FUN = mean)
+write.csv(counts,"C:\\Users\\PC01\\Desktop\\Divvy_Exercise\\avg_ride_length.csv", row.names = FALSE)
+
+#this is how to write content to a csv file located onedrive
+counts <- aggregate(all_trips_v2$ride_length ~ all_trips_v2$member_casual + all_trips_v2$day_of_week, FUN = mean)
+write.csv(counts,"E:\\OneDrive\\Documents\\my office files\\web development courses\\coursera\\Capstone\\google_capstone\\avg_ride_length.csv", row.names = FALSE)
+
+#write.csv(counts, file = '~/Desktop/Divvy_Exercise/avg_ride_length.csv')
+
